@@ -86,7 +86,11 @@ $(document).ready(function () {
 
                 }
 
-                nextPlayer()
+                else {
+                    nextPlayer()
+                }
+
+                
 
             })
         }
