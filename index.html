@@ -1,140 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- CSS Déclaration -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.9.96/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="style.css">
-    <!-- Polices -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&display=swap" rel="stylesheet">
-    <!-- Script déclaration -->
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
-    
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- CSS Déclaration -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.9.96/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- Polices -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&display=swap" rel="stylesheet">
+  <!-- Script déclaration -->
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
 
-    <!-- favicon -->
-<link rel="shortcut icon" href="">
 
-    <title>Dice Game Road to 100 !</title>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="">
+
+  <title>Dice Game Road to 100 !</title>
 </head>
+
 <body>
-    <section class="section">
-      <div class="container">
-        <h1 class="content is-spaced has-text-centered">
-          Dice Games !
-        </h1>
-        <p class="content has-text-justified" >
-            
-            <strong>Règles :</strong> <br>
-            <br>
-            Le jeu comprend 2 joueurs sur un seul et même écran.<br>
-            Chaque joueur possède un score temporaire (ROUND) et un score global (GLOBAL).<br>
-            À chaque tour, le joueur a son ROUND initialisé à 0 et peut lancer un dé autant de fois qu'il le souhaite. Le
-            résultat d’un lancer est ajouté au ROUND.
-            Lors de son tour, le joueur peut décider à tout moment de:
-            <br>
-            <br>
-            - Cliquer sur l’option “Hold”, qui permet d’envoyer les points du ROUND vers le GLOBAL. Ce sera alors le
-            tour de l’autre joueur.
-            <br>
-            <br>
-            - Lancer le dé. S’il obtient un 1, son score ROUND est perdu et c’est la fin de son tour.
-            Le premier joueur qui atteint les 100 points sur global gagne le jeu.
-        </p>
-        <div class="box has-text-centered">
-          
+  <section class="section">
+    <div class="container">
+      <h1 class="content is-spaced has-text-centered">
+        Dice Games !
+      </h1>
+      <p class="content has-text-justified">
 
-            <div class="columns is-multiline">
-                <div class="column is-two-fifths ">
-                  
-                  <span class="subtitle is-3" id="Player1">PLAYER 1</span><br>
-                  <span class="subtitle is-1" id="ScoreP1">0</span><br>
-                  <div id="CurrentScroreBox" class="box bg-danger" style="height: 100px; width : 100px; display: inline-block">
-                    <span class="content is-small ">CURRENT</span><br>
-                    <span class="content is-normal" id="CurrentP1">0</span>
-                  </div>
-                  
+        <strong>Règles :</strong> <br>
+        <br>
+        Le jeu comprend 2 joueurs sur un seul et même écran.<br>
+        Chaque joueur possède un score temporaire (ROUND) et un score global (GLOBAL).<br>
+        À chaque tour, le joueur a son ROUND initialisé à 0 et peut lancer un dé autant de fois qu'il le souhaite. Le
+        résultat d’un lancer est ajouté au ROUND.
+        Lors de son tour, le joueur peut décider à tout moment de:
+        <br>
+        <br>
+        - Cliquer sur l’option “Hold”, qui permet d’envoyer les points du ROUND vers le GLOBAL. Ce sera alors le
+        tour de l’autre joueur.
+        <br>
+        <br>
+        - Lancer le dé. S’il obtient un 1, son score ROUND est perdu et c’est la fin de son tour.
+        Le premier joueur qui atteint les 100 points sur global gagne le jeu.
+      </p>
+      <div class="box has-text-centered">
 
-                </div>
-                <div class="column">
-                    <span id="newgame" class="icon-text">
-                        <span class="icon is-medium">
-                          <i class="mdi mdi-36px mdi-plus-circle-outline"></i>
-                        </span>
-                        <span class="content is-large" >NEW GAME</span>
-                    </span>
-                    <br>
-                    <div class="dice">
-                        <div class="one">
-                          <span></span>
-                        </div>
-                        <div class="two">
-                          <span></span>
-                          <span></span>
-                        </div>
-                        <div class="three">
-                          <span></span>
-                          <span></span>
-                          <span></span>
-                        </div>
-                        <div class="four">
-                          <span></span>
-                          <span></span>
-                          <span></span>
-                          <span></span>
-                        </div>
-                        <div class="five">
-                          <span></span>
-                          <span></span>
-                          <span></span>
-                          <span></span>
-                          <span></span>
-                        </div>
-                        <div class="six">
-                          <span></span>
-                          <span></span>
-                          <span></span>
-                          <span></span>
-                          <span></span>
-                          <span></span>
-                        </div>
-                    </div>
-                    <br>
-                    <span id="roll" class="icon-text">
-                        <span class="icon is-medium">
-                          <i class="mdi mdi-36px mdi-sync"></i>
-                        </span>
-                        <span class="content is-large" >ROLL DICE</span>
-                    </span>
-                    <br>  
-                    <span id="hold" class="icon-text">
-                        <span class="icon is-medium">
-                          <i class="mdi mdi-36px mdi-tray-arrow-down"></i>
-                        </span>
-                        <span class="content is-large" >HOLD</span>
-                    </span>
-                </div>
-                <div class="column is-two-fifths ">
-                    <span class="subtitle is-3" id="Player2">PLAYER 2</span><br>
-                    <span class="subtitle is-1" id="ScoreP2">0</span><br>
-                    <div id="CurrentScroreBox" class="box bg-danger" style="height: 100px; width : 100px; display: inline-block">
-                      <span class="content is-small ">CURRENT</span><br>
-                      <span class="content is-normal" id="CurrentP2">0</span>
-                    </div>
-  
-                  </div>
-                
+
+        <div class="columns is-mobile is-multiline">
+          <div class="column is-two-fifths ">
+
+            <span class="subtitle is-3" id="Player1">PLAYER 1</span><br>
+            <span class="subtitle is-1" id="ScoreP1">0</span><br>
+            <div id="CurrentScroreBox" class="box" style="height: 100px; width : 100px; display: inline-block">
+              <span class="content is-small ">CURRENT</span><br>
+              <span class="content is-normal" id="CurrentP1">0</span>
+            </div>
+
+
+          </div>
+          <div class="column">
+            <span id="newgame" class="icon-text">
+              <span class="icon is-medium">
+                <i class="mdi mdi-36px mdi-plus-circle-outline"></i>
+              </span>
+              <span class="content is-large">NEW GAME</span>
+            </span>
+            <br>
+            <div class="dice">
+              <div class="one">
+                <span></span>
               </div>
+              <div class="two">
+                <span></span>
+                <span></span>
+              </div>
+              <div class="three">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="four">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="five">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="six">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <br>
+            <span id="roll" class="icon-text">
+              <span class="icon is-medium">
+                <i class="mdi mdi-36px mdi-sync"></i>
+              </span>
+              <span class="content is-large">ROLL DICE</span>
+            </span>
+            <br>
+            <span id="hold" class="icon-text">
+              <span class="icon is-medium">
+                <i class="mdi mdi-36px mdi-tray-arrow-down"></i>
+              </span>
+              <span class="content is-large">HOLD</span>
+            </span>
+          </div>
+          <div class="column is-two-fifths ">
+            <span class="subtitle is-3" id="Player2">PLAYER 2</span><br>
+            <span class="subtitle is-1" id="ScoreP2">0</span><br>
+            <div id="CurrentScroreBox" class="box" style="height: 100px; width : 100px; display: inline-block">
+              <span class="content is-small ">CURRENT</span><br>
+              <span class="content is-normal" id="CurrentP2">0</span>
+            </div>
+
+          </div>
+
         </div>
-        
       </div>
-    </section>
-    </body>
+    </div>
+  </section>
+ </body>
+
 </html>
 
 

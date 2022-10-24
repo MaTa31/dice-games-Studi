@@ -43,20 +43,28 @@ body {
   
 } */
 
+i{
+  color: #EB4D4C;
+}
+
 .columns{
   height:100%;
   margin: 0 auto;
+  
 }
 
 #CurrentScroreBox{
     position: relative ;
     top: 250px;
     color: #fff;
+    background-color: #EB4D4C;
 }
 
 #ScoreP1,#ScoreP2{
     position: relative ;
     top: 130px;
+    font-size: 4.5rem;
+    color: #EB4D4C;
 }
 
 #Player1,#Player2{
@@ -71,7 +79,7 @@ body {
   content: "\2022";
   font-size: 47px;
   position: absolute;
-  color: red;
+  color: #EB4D4C;
   top: -13px;
   right: -40px;
   
@@ -173,7 +181,7 @@ h1,p, strong {
   
   .dice > div > span { 
     position: absolute;
-    background: red;
+    background: #EB4D4C;
     height: 20px;
     width: 20px;
     border-radius: 50%;
